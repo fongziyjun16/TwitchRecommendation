@@ -12,7 +12,7 @@ public record Video(
         @JsonProperty("user_name") String userName,
         String title,
         String description,
-        @JsonProperty("created_at") Integer createdAt,
+        @JsonProperty("created_at") String createdAt,
         @JsonProperty("published_at") String publishedAt,
         String url,
         @JsonProperty("thumbnail_url") String thumbnailUrl,

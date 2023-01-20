@@ -1,4 +1,6 @@
-package one.yjchen.tr.external.model;
+package one.yjchen.tr;
+
+import one.yjchen.tr.external.model.Video;
 
 import java.util.List;
 
