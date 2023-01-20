@@ -1,6 +1,9 @@
-package one.yjchen.tr.external.model;
+package one.yjchen.tr.modal;
 
 import one.yjchen.tr.db.entity.ItemEntity;
+import one.yjchen.tr.external.model.Clip;
+import one.yjchen.tr.external.model.Stream;
+import one.yjchen.tr.external.model.Video;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,6 @@
-package one.yjchen.tr.external;
+package one.yjchen.tr;
 
+import one.yjchen.tr.external.TwitchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;

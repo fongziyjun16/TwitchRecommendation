@@ -1,6 +1,6 @@
 package one.yjchen.tr.item;
 
-import one.yjchen.tr.external.model.TypeGroupedItemList;
+import one.yjchen.tr.modal.TypeGroupedItemList;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package one.yjchen.tr;
+package one.yjchen.tr.external.model;
 
 import one.yjchen.tr.external.model.Video;
 

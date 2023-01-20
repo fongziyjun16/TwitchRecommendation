@@ -1,6 +1,6 @@
 package one.yjchen.tr.external;
 
-import one.yjchen.tr.VideoResponse;
+import one.yjchen.tr.external.model.VideoResponse;
 import one.yjchen.tr.external.model.*;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;

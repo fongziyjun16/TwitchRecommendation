@@ -2,7 +2,7 @@ package one.yjchen.tr.db.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import one.yjchen.tr.external.model.Clip;
-import one.yjchen.tr.external.model.ItemType;
+import one.yjchen.tr.modal.ItemType;
 import one.yjchen.tr.external.model.Stream;
 import one.yjchen.tr.external.model.Video;
 
