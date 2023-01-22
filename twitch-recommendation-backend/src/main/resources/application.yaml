@@ -1,12 +1,12 @@
-logging:
-  level:
-    org.apache.coyote.http11.Http11InputBuffer: DEBUG # Incoming http requests
-    org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE # Outgoing http requests
+spring:
+  jackson:
+    default-property-inclusion: non_null
 
 twitch:
   client-id: "y2hygtk76tkbgjyfrwvo9whfd6oaux"
   secret: "d21jmjub8fpyvjm7lm4ref0ez6wn0v"
 
-spring:
-  jackson:
-    default-property-inclusion: non_null
+logging:
+  level:
+    org.apache.coyote.http11.Http11InputBuffer: DEBUG # Incoming http requests
+    org.springframework.web.reactive.function.client.ExchangeFunctions: TRACE # Outgoing http requests
