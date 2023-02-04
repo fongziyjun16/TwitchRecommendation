@@ -1,4 +1,4 @@
-package one.yjchen.tr.modal;
+package one.yjchen.tr.model;
 
 public record TwitchErrorResponse(
         String message,

@@ -2,12 +2,15 @@ package one.yjchen.tr.db.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import one.yjchen.tr.external.model.Clip;
-import one.yjchen.tr.modal.ItemType;
+import one.yjchen.tr.model.ItemType;
 import one.yjchen.tr.external.model.Stream;
 import one.yjchen.tr.external.model.Video;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("items")
 public record ItemEntity(
-        Long id,
+        @Id Long id,
         @JsonProperty("twitch_id") String twitchId,
         String title,
         String url,

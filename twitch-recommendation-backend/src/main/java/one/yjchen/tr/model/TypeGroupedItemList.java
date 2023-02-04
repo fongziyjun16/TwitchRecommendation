@@ -1,4 +1,4 @@
-package one.yjchen.tr.modal;
+package one.yjchen.tr.model;
 
 import one.yjchen.tr.db.entity.ItemEntity;
 import one.yjchen.tr.external.model.Clip;

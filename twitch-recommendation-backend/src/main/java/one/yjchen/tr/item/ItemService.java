@@ -3,7 +3,7 @@ package one.yjchen.tr.item;
 import one.yjchen.tr.external.TwitchService;
 import one.yjchen.tr.external.model.Clip;
 import one.yjchen.tr.external.model.Stream;
-import one.yjchen.tr.modal.TypeGroupedItemList;
+import one.yjchen.tr.model.TypeGroupedItemList;
 import one.yjchen.tr.external.model.Video;
 import org.springframework.stereotype.Service;
 
