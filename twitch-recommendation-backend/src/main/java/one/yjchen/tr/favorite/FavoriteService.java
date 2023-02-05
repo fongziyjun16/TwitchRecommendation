@@ -6,12 +6,12 @@ import one.yjchen.tr.db.entity.FavoriteRecordEntity;
 import one.yjchen.tr.db.entity.ItemEntity;
 import one.yjchen.tr.db.entity.UserEntity;
 import one.yjchen.tr.model.TypeGroupedItemList;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class FavoriteService {
@@ -24,6 +24,7 @@ public class FavoriteService {
         this.favoriteRecordRepository = favoriteRecordRepository;
     }
 
+    @CacheEvict(cacheNames = "recommend_items", key = "#root.args[0]")
     @Transactional
     public void setFavoriteItem(UserEntity user, ItemEntity item) {
         ItemEntity persistedItem = itemRepository.findByTwitchId(item.twitchId());
@@ -34,6 +35,7 @@ public class FavoriteService {
         favoriteRecordRepository.save(favoriteRecord);
     }
 
+    @CacheEvict(cacheNames = "recommend_items", key = "#root.args[0]")
     public void unsetFavoriteItem(UserEntity user, String twitchId) {
         ItemEntity item = itemRepository.findByTwitchId(twitchId);
         if (item != null) {

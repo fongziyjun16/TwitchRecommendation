@@ -2,6 +2,7 @@ package one.yjchen.tr.external;
 
 import one.yjchen.tr.external.model.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
@@ -52,11 +53,13 @@ public class TwitchService {
         return "Bearer " + token.accessToken();
     }
 
+    @Cacheable("top_games")
     public List<Game> getTopGames() {
         return requestWithToken(() ->
                 twitchApiClient.getTopGames(bearerToken()).data());
     }
 
+    @Cacheable("games_by_name")
     public List<Game> getGames(String name) {
         return requestWithToken(() ->
                 twitchApiClient.getGames(bearerToken(), name).data());

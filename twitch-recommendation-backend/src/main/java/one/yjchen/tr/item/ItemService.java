@@ -5,6 +5,7 @@ import one.yjchen.tr.external.model.Clip;
 import one.yjchen.tr.external.model.Stream;
 import one.yjchen.tr.model.TypeGroupedItemList;
 import one.yjchen.tr.external.model.Video;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ItemService {
         this.twitchService = twitchService;
     }
 
+    @Cacheable("items")
     public TypeGroupedItemList getItems(String gameId) {
         List<Video> videos = twitchService.getVideos(gameId, SEARCH_RESULT_SIZE);
         List<Clip> clips = twitchService.getClips(gameId, SEARCH_RESULT_SIZE);

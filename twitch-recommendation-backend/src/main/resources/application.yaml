@@ -10,6 +10,9 @@ spring:
     init:
       mode: ${INIT_DB:always}
       schema-locations: classpath:database-init.sql
+  cache:
+    caffeine:
+      spec: expireAfterWrite=1m
 
 twitch:
   client-id: "y2hygtk76tkbgjyfrwvo9whfd6oaux"

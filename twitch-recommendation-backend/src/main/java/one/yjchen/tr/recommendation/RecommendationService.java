@@ -8,6 +8,7 @@ import one.yjchen.tr.external.model.Stream;
 import one.yjchen.tr.external.model.Video;
 import one.yjchen.tr.favorite.FavoriteService;
 import one.yjchen.tr.model.TypeGroupedItemList;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -66,6 +67,7 @@ public class RecommendationService {
         return resultItems;
     }
 
+    @Cacheable("recommend_items")
     public TypeGroupedItemList recommendItems(UserEntity userEntity) {
         List<String> gameIds;
         Set<String> exclusions = new HashSet<>();
