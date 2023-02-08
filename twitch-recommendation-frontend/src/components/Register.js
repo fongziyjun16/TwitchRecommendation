@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {login, register} from "../utils";
+import React, {useState} from "react";
+import {register} from "../utils";
 import {Button, Form, Input, message, Modal} from "antd";
 import {LockOutlined, UserOutlined} from "@ant-design/icons";
 

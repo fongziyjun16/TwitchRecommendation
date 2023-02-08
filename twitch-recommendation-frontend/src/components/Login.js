@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {login} from "../utils";
 import {Button, Form, Input, message, Modal} from "antd";
 import {LockOutlined, UserOutlined} from '@ant-design/icons';
@@ -26,7 +26,7 @@ function Login({onSuccess}) {
 
     return (
         <>
-            <Button shape="round" onClick={signInOnClick} style={{marginRight: '200px'}}>
+            <Button shape="round" onClick={signInOnClick} style={{marginRight: '20px'}}>
                 Login
             </Button>
             <Modal
