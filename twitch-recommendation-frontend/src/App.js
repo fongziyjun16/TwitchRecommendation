@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
 import {Layout, Menu, message} from "antd";
-import {getFavoriteItem, getTopGames, logout} from "./utils";
+import {getFavoriteItem, getRecommendations, getTopGames, logout, searchGameById} from "./utils";
 import PageHeader from "./components/PageHeader";
 import CustomSearch from "./components/CustomSearch";
 import {FireOutlined, LikeOutlined} from "@ant-design/icons";
+import Home from "./components/Home";
 
 const { Header, Sider, Content } = Layout;
 
@@ -13,6 +14,11 @@ function App() {
     const [loggedIn, setLoggedIn] = useState(false)
     const [favoriteItems, setFavoriteItems] = useState([])
     const [topGames, setTopGames] = useState([])
+    const [resources, setResources] = useState({
+        videos: [],
+        streams: [],
+        clips: []
+    })
 
     useEffect(() => {
         getTopGames().then((data) => {
@@ -34,6 +40,31 @@ function App() {
             setLoggedIn(false)
             message.success('Successfully Signed out')
         }).catch((err) => {
+            message.error(err.message)
+        })
+    }
+
+    const customSearchOnSuccess = (data) => {
+        setResources(data)
+    }
+
+    const onGameSelect = ({key}) => {
+        if (key === "recommendation") {
+            getRecommendations().then((data) => {
+                setResources(data);
+            });
+            return;
+        }
+
+        searchGameById(key).then((data) => {
+            setResources(data);
+        })
+    }
+
+    const favoriteOnChange = () => {
+        getFavoriteItem().then((data) => {
+            setFavoriteItems(data);
+        }).catch(err => {
             message.error(err.message)
         })
     }
@@ -72,10 +103,10 @@ function App() {
             </Header>
             <Layout>
                 <Sider width={300} style={{background: '#fff'}}>
-                    <CustomSearch onSuccess={()=>{}} />
+                    <CustomSearch onSuccess={customSearchOnSuccess} />
                     <Menu
                         mode="inline"
-                        onSelect={() => {}}
+                        onSelect={onGameSelect}
                         style={{marginTop: '10px'}}
                         items={mapTopGamesToProps(topGames)}
                     />
@@ -90,7 +121,12 @@ function App() {
                             overflow: 'auto'
                         }}
                     >
-                        {'Home'}
+                        <Home
+                            resources={resources}
+                            loggedIn={loggedIn}
+                            favoriteItems={favoriteItems}
+                            favoriteOnChange={favoriteOnChange}
+                        />
                     </Content>
                 </Layout>
             </Layout>
